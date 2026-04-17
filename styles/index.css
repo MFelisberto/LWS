@@ -168,6 +168,8 @@ body::before {
     gap: 24px;
     position: relative;
     overflow: hidden;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .match-card::before {
@@ -205,19 +207,16 @@ body::before {
     flex-shrink: 0;
 }
 
+.time-badge.time-finished {
+    background: #444;
+}
+
 .match-info {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+    display: none;
 }
 
 .team-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: none;
 }
 
 .team {
@@ -225,11 +224,17 @@ body::before {
     font-weight: 600;
     font-size: 1.15em;
     text-align: center;
+    flex: 1;
+    min-width: 120px;
 }
 
-.winner .team {
+.team.winner {
     color: #00ff88;
     font-weight: 800;
+}
+
+.score.winner {
+    color: #00ff88;
 }
 
 .score-container {
@@ -250,9 +255,6 @@ body::before {
     color: #ffffff;
 }
 
-.winner-score {
-    color: #00ff88;
-}
 
 .score-divider {
     color: rgba(255, 255, 255, 0.2);
@@ -278,11 +280,21 @@ body::before {
 }
 
 @media (max-width: 768px) {
-    .match-card { flex-direction: column; padding: 20px; }
-    .match-info { flex-direction: column; width: 100%; }
-    .score-container { order: 2; margin: 10px 0; width: 100%; }
-    .team-container:first-child { order: 1; }
-    .team-container:last-child { order: 3; }
+    .match-card { 
+        flex-direction: column; 
+        padding: 20px;
+        flex-wrap: nowrap;
+    }
+    .score-container { 
+        margin: 10px 0; 
+        width: 100%; 
+    }
+    .team {
+        order: 1;
+    }
+    .team:last-child {
+        order: 3;
+    }
 }
 
 .stats-btn {
