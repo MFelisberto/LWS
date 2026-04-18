@@ -195,6 +195,11 @@ body::before {
     transform: scaleY(1);
 }
 
+.match-card:not(:has(.team)) {
+    justify-content: flex-start;
+    padding: 24px;
+}
+
 .time-badge {
     background: linear-gradient(135deg, #cc0000, #ff1a1a);
     color: white;
@@ -209,14 +214,6 @@ body::before {
 
 .time-badge.time-finished {
     background: #444;
-}
-
-.match-info {
-    display: none;
-}
-
-.team-container {
-    display: none;
 }
 
 .team {
@@ -270,6 +267,11 @@ body::before {
     font-size: 0.9em;
     border: 1px solid rgba(204, 0, 0, 0.3);
     text-transform: uppercase;
+}
+
+.match-info,
+.team-container {
+    display: none;
 }
 
 .footer {
