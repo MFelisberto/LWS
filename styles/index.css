@@ -196,7 +196,7 @@ body::before {
     position: relative;
     overflow: hidden;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .match-card::before {
