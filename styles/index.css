@@ -269,11 +269,6 @@ body::before {
     text-transform: uppercase;
 }
 
-.match-info,
-.team-container {
-    display: none;
-}
-
 .footer {
     padding: 20px;
     text-align: center;
