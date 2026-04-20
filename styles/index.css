@@ -79,6 +79,32 @@ body::before {
     position: relative;
 }
 
+.classification-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.classification-tab {
+    background: rgba(30, 30, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 12px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.classification-tab:hover {
+    background: rgba(40, 40, 40, 0.9);
+    border-color: rgba(204, 0, 0, 0.3);
+    color: white;
+}
+
 .rounds-nav {
     display: flex;
     gap: 12px;
@@ -193,11 +219,6 @@ body::before {
 
 .match-card:hover::before {
     transform: scaleY(1);
-}
-
-.match-card:not(:has(.team)) {
-    justify-content: flex-start;
-    padding: 24px;
 }
 
 .time-badge {
