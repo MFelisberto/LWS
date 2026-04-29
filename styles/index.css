@@ -83,6 +83,7 @@ body::before {
 .classification-wrapper {
     display: flex;
     justify-content: center;
+    gap: 12px;
     margin-bottom: 30px;
 }
 

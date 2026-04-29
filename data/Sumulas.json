@@ -1,0 +1,62 @@
+[
+  {
+    "jogoId": "R1-J1",
+    "times": [
+      {
+        "timeId": "rays",
+        "jogadores": [
+          {
+            "jogadorCpf": "11111111122",
+            "nmrCamiseta": 7,
+            "stats": { "pontos": 18, "rebotes": 6, "assistencias": 3, "tocos": 1, "roubos": 2 }
+          },
+          {
+            "jogadorCpf": "11111111123",
+            "nmrCamiseta": 13,
+            "stats": { "pontos": 12, "rebotes": 4, "assistencias": 5, "tocos": 0, "roubos": 1 }
+          }
+        ]
+      },
+      {
+        "timeId": "vf",
+        "jogadores": [
+          {
+            "jogadorCpf": "11111111116",
+            "nmrCamiseta": 4,
+            "stats": { "pontos": 20, "rebotes": 7, "assistencias": 2, "tocos": 1, "roubos": 1 }
+          },
+          {
+            "jogadorCpf": "11111111117",
+            "nmrCamiseta": 9,
+            "stats": { "pontos": 11, "rebotes": 5, "assistencias": 4, "tocos": 0, "roubos": 2 }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "jogoId": "R1-J2",
+    "times": [
+      {
+        "timeId": "saoleo",
+        "jogadores": [
+          {
+            "jogadorCpf": "11111111128",
+            "nmrCamiseta": 10,
+            "stats": { "pontos": 22, "rebotes": 3, "assistencias": 6, "tocos": 0, "roubos": 1 }
+          }
+        ]
+      },
+      {
+        "timeId": "black",
+        "jogadores": [
+          {
+            "jogadorCpf": "11111111129",
+            "nmrCamiseta": 8,
+            "stats": { "pontos": 17, "rebotes": 8, "assistencias": 1, "tocos": 2, "roubos": 1 }
+          }
+        ]
+      }
+    ]
+  }
+]

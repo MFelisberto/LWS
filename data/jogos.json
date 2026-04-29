@@ -1,0 +1,37 @@
+[
+  { "id": "R1-J1", "rodadaId": 1, "horario": "08:00", "time1_id": "rays", "time2_id": "vf", "placar": { "time1": 41, "time2": 44 }, "ganhadorId": "vf", "finalizado": true },
+  { "id": "R1-J2", "rodadaId": 1, "horario": "10:00", "time1_id": "saoleo", "time2_id": "black", "placar": { "time1": 49, "time2": 48 }, "ganhadorId": "saoleo", "finalizado": true },
+  { "id": "R1-J3", "rodadaId": 1, "horario": "12:00", "time1_id": "sanluis", "time2_id": "olaria", "placar": { "time1": 52, "time2": 56 }, "ganhadorId": "olaria", "finalizado": true },
+  { "id": "R1-J4", "rodadaId": 1, "horario": "14:00", "time1_id": "raposas", "time2_id": "masca", "placar": { "time1": 59, "time2": 41 }, "ganhadorId": "raposas", "finalizado": true },
+  { "id": "R1-J5", "rodadaId": 1, "horario": "16:00", "time1_id": "benchers", "time2_id": "guaiba", "placar": { "time1": 59, "time2": 55 }, "ganhadorId": "benchers", "finalizado": true },
+  { "id": "R1-J6", "rodadaId": 1, "horario": "18:00", "time1_id": "rtg", "time2_id": "bex", "placar": { "time1": 60, "time2": 62 }, "ganhadorId": "bex", "finalizado": true },
+
+  { "id": "R2-J1", "rodadaId": 2, "horario": "08:00", "time1_id": "sapo", "time2_id": "embaixadores", "placar": { "time1": 39, "time2": 56 }, "ganhadorId": "embaixadores", "finalizado": true },
+  { "id": "R2-J2", "rodadaId": 2, "horario": "10:00", "time1_id": "poa", "time2_id": "corinthians", "placar": { "time1": 76, "time2": 66 }, "ganhadorId": "poa", "finalizado": true },
+  { "id": "R2-J3", "rodadaId": 2, "horario": "12:00", "time1_id": "ducks", "time2_id": "bex", "placar": { "time1": 78, "time2": 44 }, "ganhadorId": "ducks", "finalizado": true },
+  { "id": "R2-J4", "rodadaId": 2, "horario": "14:00", "time1_id": "sultanes", "time2_id": "oplano", "placar": { "time1": 62, "time2": 65 }, "ganhadorId": "oplano", "finalizado": true },
+  { "id": "R2-J5", "rodadaId": 2, "horario": "16:00", "time1_id": "rays", "time2_id": "olaria", "placar": { "time1": 44, "time2": 50 }, "ganhadorId": "olaria", "finalizado": true },
+  { "id": "R2-J6", "rodadaId": 2, "horario": "18:00", "time1_id": "raposas", "time2_id": "saoleo", "placar": { "time1": 75, "time2": 70 }, "ganhadorId": "raposas", "finalizado": true },
+  { "id": "R2-J7", "rodadaId": 2, "horario": "20:00", "time1_id": "rtg", "time2_id": "cambrayers", "placar": { "time1": 72, "time2": 64 }, "ganhadorId": "rtg", "finalizado": true },
+
+  { "id": "R3-J1", "rodadaId": 3, "horario": "08:00", "time1_id": "cambrayers", "time2_id": "sultanes", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R3-J2", "rodadaId": 3, "horario": "10:00", "time1_id": "ducks", "time2_id": "oplano", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R3-J3", "rodadaId": 3, "horario": "12:00", "time1_id": "vf", "time2_id": "sanluis", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R3-J4", "rodadaId": 3, "horario": "14:00", "time1_id": "black", "time2_id": "benchers", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R3-J5", "rodadaId": 3, "horario": "16:00", "time1_id": "masca", "time2_id": "guaiba", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R3-J6", "rodadaId": 3, "horario": "18:00", "time1_id": "sapo", "time2_id": "corinthians", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R3-J7", "rodadaId": 3, "horario": "20:00", "time1_id": "poa", "time2_id": "embaixadores", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+
+  { "id": "R4-J1", "rodadaId": 4, "horario": "08:00", "time1_id": "masca", "time2_id": "benchers", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R4-J2", "rodadaId": 4, "horario": "10:00", "time1_id": "raposas", "time2_id": "guaiba", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R4-J3", "rodadaId": 4, "horario": "12:00", "time1_id": "vf", "time2_id": "olaria", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R4-J4", "rodadaId": 4, "horario": "14:00", "time1_id": "poa", "time2_id": "black", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R4-J5", "rodadaId": 4, "horario": "16:00", "time1_id": "rays", "time2_id": "bex", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R4-J6", "rodadaId": 4, "horario": "18:00", "time1_id": "rtg", "time2_id": "sanluis", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R4-J7", "rodadaId": 4, "horario": "20:00", "time1_id": "saoleo", "time2_id": "sapo", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+
+  { "id": "R5-J1", "rodadaId": 5, "horario": "08:00", "time1_id": "ducks", "time2_id": "cambrayers", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R5-J2", "rodadaId": 5, "horario": "12:00", "time1_id": "sultanes", "time2_id": "sanluis", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R5-J3", "rodadaId": 5, "horario": "14:00", "time1_id": "corinthians", "time2_id": "black", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false },
+  { "id": "R5-J4", "rodadaId": 5, "horario": "16:00", "time1_id": "olaria", "time2_id": "rtg", "placar": { "time1": 0, "time2": 0 }, "ganhadorId": null, "finalizado": false }
+]
