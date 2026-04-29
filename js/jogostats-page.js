@@ -2,6 +2,23 @@ function emptyTableState() {
     return '<tr><td colspan="7"><div class="empty-state"><div class="icon">🏀</div><p>Nenhuma estatística inserida</p></div></td></tr>';
 }
 
+function getJogadorLabel(sumulaItem, jogadorByCpf) {
+    // Formato antigo:
+    // { jogadorCpf, nmrCamiseta, stats: {...} }
+    if (sumulaItem && sumulaItem.jogadorCpf) {
+        const jogador = jogadorByCpf && jogadorByCpf.get ? jogadorByCpf.get(sumulaItem.jogadorCpf) : null;
+        return jogador && jogador.nome ? jogador.nome : sumulaItem.jogadorCpf;
+    }
+
+    // Formato novo (data/Sumulas.json):
+    // { jogador: "Nome", nmrCamiseta, stats: {...} }
+    if (sumulaItem && typeof sumulaItem.jogador === "string" && sumulaItem.jogador.trim()) {
+        return sumulaItem.jogador.trim();
+    }
+
+    return "—";
+}
+
 function renderTeamStats(sumulas, jogadorByCpf) {
     if (!sumulas.length) {
         return emptyTableState();
@@ -10,11 +27,12 @@ function renderTeamStats(sumulas, jogadorByCpf) {
     return sumulas
         .sort((a, b) => b.stats.pontos - a.stats.pontos)
         .map((item) => {
-            const jogador = jogadorByCpf.get(item.jogadorCpf);
-            const nome = jogador ? jogador.nome : item.jogadorCpf;
+            const nome = getJogadorLabel(item, jogadorByCpf);
+            const numero = item && item.nmrCamiseta != null ? item.nmrCamiseta : "—";
             return `
                 <tr>
-                    <td>${item.nmrCamiseta} - ${nome}</td>
+                    <td>${numero}</td>
+                    <td>${nome}</td>
                     <td>${item.stats.pontos}</td>
                     <td>${item.stats.rebotes}</td>
                     <td>${item.stats.assistencias}</td>
@@ -40,7 +58,7 @@ async function initJogoStatsPage() {
     }
 
     const teamById = toMap(times, "id");
-    const jogadorByCpf = toMap(jogadores, "cpf");
+    const jogadorByCpf = Array.isArray(jogadores) ? toMap(jogadores, "cpf") : new Map();
     const winnerId = getWinnerId(jogo);
 
     const home = teamById.get(jogo.time1_id);

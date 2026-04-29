@@ -1,13 +1,85 @@
+async function fetchJsonSafe(path, fallbackValue) {
+    try {
+        const res = await fetch(path, { cache: "no-store" });
+        if (!res.ok) {
+            return fallbackValue;
+        }
+        return await res.json();
+    } catch {
+        return fallbackValue;
+    }
+}
+
+async function fetchJsonFirstAvailable(paths, fallbackValue) {
+    for (const path of paths) {
+        const value = await fetchJsonSafe(path, null);
+        if (value !== null) {
+            return value;
+        }
+    }
+    return fallbackValue;
+}
+
+function buildTimesFallbackFromJogos(jogos) {
+    const ids = new Set();
+    (Array.isArray(jogos) ? jogos : []).forEach((j) => {
+        if (j && j.time1_id) ids.add(j.time1_id);
+        if (j && j.time2_id) ids.add(j.time2_id);
+    });
+    return Array.from(ids).sort().map((id) => ({ id, nome: id }));
+}
+
 async function loadCampeonatoData() {
-    const [times, jogadores, rodadas, jogos, sumulas] = await Promise.all([
-        fetch("data/times.json").then((r) => r.json()),
-        fetch("data/jogadores.json").then((r) => r.json()),
-        fetch("data/rodadas.json").then((r) => r.json()),
-        fetch("data/jogos.json").then((r) => r.json()),
-        fetch("data/sumulas.json").then((r) => r.json())
+    const [rodadas, jogos, sumulas, times, rawJogadores] = await Promise.all([
+        fetchJsonSafe("data/rodadas.json", []),
+        fetchJsonSafe("data/jogos.json", []),
+        // Windows não diferencia maiúsculas/minúsculas, mas hospedagens costumam diferenciar.
+        // Tentamos os dois nomes para evitar 404 em produção.
+        fetchJsonFirstAvailable(["data/Sumulas.json", "data/sumulas.json"], []),
+        fetchJsonSafe("data/times.json", []),
+        fetchJsonSafe("data/jogadores.json", [])
     ]);
 
-    return { times, jogadores, rodadas, jogos, sumulas };
+    const normalizedTimes = Array.isArray(times) && times.length ? times : buildTimesFallbackFromJogos(jogos);
+    const { jogadores, jogadoresPorTime } = normalizeJogadores(rawJogadores);
+    return { times: normalizedTimes, jogadores, jogadoresPorTime, rodadas, jogos, sumulas };
+}
+
+function normalizeJogadores(rawJogadores) {
+    if (!Array.isArray(rawJogadores)) {
+        return { jogadores: [], jogadoresPorTime: {} };
+    }
+
+    const groupedFormat = rawJogadores.every(
+        (item) => item && typeof item === "object" && typeof item.timeId === "string" && Array.isArray(item.jogadores)
+    );
+
+    if (groupedFormat) {
+        const jogadoresPorTime = {};
+        const jogadores = [];
+
+        rawJogadores.forEach((timeNode) => {
+            const timeId = timeNode.timeId;
+            const jogadoresDoTime = Array.isArray(timeNode.jogadores) ? timeNode.jogadores : [];
+            jogadoresPorTime[timeId] = jogadoresDoTime.map((jogador) => ({ ...jogador, timeId }));
+            jogadores.push(...jogadoresPorTime[timeId]);
+        });
+
+        return { jogadores, jogadoresPorTime };
+    }
+
+    const jogadoresPorTime = rawJogadores.reduce((acc, jogador) => {
+        if (!jogador || !jogador.timeId) {
+            return acc;
+        }
+        if (!acc[jogador.timeId]) {
+            acc[jogador.timeId] = [];
+        }
+        acc[jogador.timeId].push(jogador);
+        return acc;
+    }, {});
+
+    return { jogadores: rawJogadores, jogadoresPorTime };
 }
 
 function toMap(items, key) {
@@ -108,6 +180,19 @@ function computeClassificacao(times, jogos) {
     return grouped;
 }
 
+function normalizeLooseId(value) {
+    if (value == null) return "";
+    return String(value)
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "");
+}
+
+function isSameLooseId(a, b) {
+    return normalizeLooseId(a) === normalizeLooseId(b);
+}
+
 function getSumulasPorTimeNoJogo(sumulas, jogoId, timeId) {
     const jogoSumula = sumulas.find((item) => item.jogoId === jogoId);
     if (!jogoSumula) {
@@ -117,7 +202,7 @@ function getSumulasPorTimeNoJogo(sumulas, jogoId, timeId) {
     // Formato novo (recomendado):
     // { jogoId, times: [{ timeId, jogadores: [...] }] }
     if (Array.isArray(jogoSumula.times)) {
-        const timeNode = jogoSumula.times.find((node) => node.timeId === timeId);
+        const timeNode = jogoSumula.times.find((node) => node && isSameLooseId(node.timeId, timeId));
         return timeNode && Array.isArray(timeNode.jogadores) ? timeNode.jogadores : [];
     }
 

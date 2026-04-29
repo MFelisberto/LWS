@@ -3,7 +3,7 @@ function renderJogadoresTable(jogadoresDoTime) {
         return `
             <tbody>
                 <tr class="standing-row">
-                    <td class="team-name" colspan="3">Nenhum jogador cadastrado.</td>
+                    <td class="team-name" colspan="4">Nenhum jogador cadastrado.</td>
                 </tr>
             </tbody>
         `;
@@ -17,6 +17,7 @@ function renderJogadoresTable(jogadoresDoTime) {
                     <tr class="standing-row">
                         <td class="position">${idx + 1}</td>
                         <td class="team-name">${jogador.nome}</td>
+                        <td class="stat">${jogador.nmrCamiseta ?? "-"}</td>
                         <td class="stat">${jogador.cpf}</td>
                     </tr>
                 `)
@@ -26,9 +27,9 @@ function renderJogadoresTable(jogadoresDoTime) {
 }
 
 async function initJogadoresPage() {
-    const { times, jogadores } = await loadCampeonatoData();
+    const { times, jogadores, jogadoresPorTime: jogadoresPorTimeData } = await loadCampeonatoData();
     const container = document.getElementById("jogadoresContainer");
-    const jogadoresPorTime = jogadores.reduce((acc, jogador) => {
+    const jogadoresPorTime = jogadoresPorTimeData || jogadores.reduce((acc, jogador) => {
         if (!acc[jogador.timeId]) {
             acc[jogador.timeId] = [];
         }
@@ -48,6 +49,7 @@ async function initJogadoresPage() {
                     <tr>
                         <th class="position">#</th>
                         <th class="team-name">Jogador</th>
+                        <th class="stat">Camiseta</th>
                         <th class="stat">CPF</th>
                     </tr>
                 </thead>
