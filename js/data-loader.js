@@ -33,8 +33,7 @@ async function loadCampeonatoData() {
     const [rodadas, jogos, sumulas, times, rawJogadores] = await Promise.all([
         fetchJsonSafe("data/rodadas.json", []),
         fetchJsonSafe("data/jogos.json", []),
-        // Windows não diferencia maiúsculas/minúsculas, mas hospedagens costumam diferenciar.
-        // Tentamos os dois nomes para evitar 404 em produção.
+        // Repositório usa Sumulas.json (S maiúsculo); sumulas.json como fallback para deploys.
         fetchJsonFirstAvailable(["data/Sumulas.json", "data/sumulas.json"], []),
         fetchJsonSafe("data/times.json", []),
         fetchJsonSafe("data/jogadores.json", [])
@@ -193,20 +192,69 @@ function isSameLooseId(a, b) {
     return normalizeLooseId(a) === normalizeLooseId(b);
 }
 
+/** Stats vindos de data/Sumulas.json podem usar assistencias ou o typo assitencias. */
+function normalizeSumulaStats(stats) {
+    if (!stats || typeof stats !== "object") {
+        return { pontos: 0, assistencias: 0, rebotes: 0, tocos: 0, roubos: 0 };
+    }
+    const assistencias = Number(stats.assistencias ?? stats.assitencias ?? 0);
+    return {
+        pontos: Number(stats.pontos ?? 0),
+        assistencias,
+        rebotes: Number(stats.rebotes ?? 0),
+        tocos: Number(stats.tocos ?? 0),
+        roubos: Number(stats.roubos ?? 0)
+    };
+}
+
+/**
+ * Uma linha de súmula pode vir como:
+ * - data/Sumulas.json: { Nome, nmrCamiseta, stats }
+ * - legado: { jogador, nmrCamiseta, stats } ou { jogadorCpf, ... }
+ */
+function normalizeSumulaJogadorRow(item) {
+    if (!item || typeof item !== "object") {
+        return null;
+    }
+    const nome =
+        (typeof item.nome === "string" && item.nome.trim()) ||
+        (typeof item.Nome === "string" && item.Nome.trim()) ||
+        (typeof item.jogador === "string" && item.jogador.trim()) ||
+        "";
+    const stats = normalizeSumulaStats(item.stats);
+    return { ...item, nome, stats };
+}
+
+function mapSumulaJogadores(rows) {
+    return (Array.isArray(rows) ? rows : [])
+        .map(normalizeSumulaJogadorRow)
+        .filter((row) => row !== null);
+}
+
+/**
+ * Objeto de súmula por jogo (data/Sumulas.json): { jogoId, times: [...] }.
+ */
+function getSumulaPorJogoId(sumulas, jogoId) {
+    if (!Array.isArray(sumulas) || !jogoId) {
+        return null;
+    }
+    return sumulas.find((item) => item && item.jogoId === jogoId) || null;
+}
+
 function getSumulasPorTimeNoJogo(sumulas, jogoId, timeId) {
-    const jogoSumula = sumulas.find((item) => item.jogoId === jogoId);
+    const jogoSumula = getSumulaPorJogoId(sumulas, jogoId);
     if (!jogoSumula) {
         return [];
     }
 
-    // Formato novo (recomendado):
+    // Formato data/Sumulas.json:
     // { jogoId, times: [{ timeId, jogadores: [...] }] }
     if (Array.isArray(jogoSumula.times)) {
         const timeNode = jogoSumula.times.find((node) => node && isSameLooseId(node.timeId, timeId));
-        return timeNode && Array.isArray(timeNode.jogadores) ? timeNode.jogadores : [];
+        return mapSumulaJogadores(timeNode && Array.isArray(timeNode.jogadores) ? timeNode.jogadores : []);
     }
 
     // Compatibilidade com formato antigo plano:
     // [{ jogoId, timeId, jogadorCpf, nmrCamiseta, stats }]
-    return sumulas.filter((item) => item.jogoId === jogoId && item.timeId === timeId);
+    return mapSumulaJogadores(sumulas.filter((item) => item.jogoId === jogoId && item.timeId === timeId));
 }
