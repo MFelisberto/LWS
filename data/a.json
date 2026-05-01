@@ -1,0 +1,32 @@
+[
+    {
+        "Grupo": 1,
+        "TimesId": [
+            "Olaria Basketball",
+            "Ducks Basquete",
+            "RTG Basquete",
+            "O Plano",
+            "VF Hoopers",
+            "Bex Team",
+            "Sultanes",
+            "San Luis Spartans",
+            "Cambrayers Cer Viamão",
+            "Rays Basquete"
+        ]
+    },
+    {
+        "Grupo": 2,
+        "TimesId": [
+            "Raposas",
+            "Embaixadores",
+            "POA Bryant",
+            "Benchers Basquete",
+            "Basquete São Léo",
+            "Black Warriors",
+            "Basquete Guaíba",
+            "Corinthians Alvorada",
+            "Sapo Basketball",
+            "Masca Hooper"
+        ]
+    }
+]
