@@ -16,8 +16,8 @@ function setStatsPageAlert(messageHtml) {
     el.innerHTML = messageHtml;
 }
 
-function isPlaceholderSumulaRow(item, jogadorByCpf) {
-    const nome = getJogadorLabel(item, jogadorByCpf);
+function isPlaceholderSumulaRow(item) {
+    const nome = getJogadorLabel(item);
     if (nome && nome !== "—") {
         return false;
     }
@@ -28,7 +28,7 @@ function isPlaceholderSumulaRow(item, jogadorByCpf) {
     return !(st.pontos || st.assistencias || st.rebotes || st.tocos || st.roubos);
 }
 
-function getJogadorLabel(sumulaItem, jogadorByCpf) {
+function getJogadorLabel(sumulaItem) {
     // Linha já normalizada em data-loader (nome) ou direto do JSON (Nome / jogador)
     if (sumulaItem && typeof sumulaItem.nome === "string" && sumulaItem.nome.trim()) {
         return sumulaItem.nome.trim();
@@ -39,8 +39,7 @@ function getJogadorLabel(sumulaItem, jogadorByCpf) {
 
     // Formato antigo: { jogadorCpf, nmrCamiseta, stats }
     if (sumulaItem && sumulaItem.jogadorCpf) {
-        const jogador = jogadorByCpf && jogadorByCpf.get ? jogadorByCpf.get(sumulaItem.jogadorCpf) : null;
-        return jogador && jogador.nome ? jogador.nome : sumulaItem.jogadorCpf;
+        return sumulaItem.jogadorCpf;
     }
 
     if (sumulaItem && typeof sumulaItem.jogador === "string" && sumulaItem.jogador.trim()) {
@@ -50,8 +49,8 @@ function getJogadorLabel(sumulaItem, jogadorByCpf) {
     return "—";
 }
 
-function renderTeamStats(sumulas, jogadorByCpf) {
-    const rows = sumulas.filter((row) => !isPlaceholderSumulaRow(row, jogadorByCpf));
+function renderTeamStats(sumulas) {
+    const rows = sumulas.filter((row) => !isPlaceholderSumulaRow(row));
     if (!rows.length) {
         return emptyTableState();
     }
@@ -59,7 +58,7 @@ function renderTeamStats(sumulas, jogadorByCpf) {
     return rows
         .sort((a, b) => b.stats.pontos - a.stats.pontos)
         .map((item) => {
-            const nome = getJogadorLabel(item, jogadorByCpf);
+            const nome = getJogadorLabel(item);
             const numero = item && item.nmrCamiseta != null ? item.nmrCamiseta : "—";
             return `
                 <tr>
@@ -88,7 +87,7 @@ async function initJogoStatsPage() {
         return;
     }
 
-    const { times, jogadores, jogos, sumulas } = await loadCampeonatoData();
+    const { times, jogos, sumulas } = await loadCampeonatoData();
     const jogo = jogos.find((item) => item.id === jogoId);
     if (!jogo) {
         document.getElementById("topbar-game-label").textContent = "Jogo não encontrado";
@@ -100,7 +99,6 @@ async function initJogoStatsPage() {
     }
 
     const teamById = toMap(times, "id");
-    const jogadorByCpf = Array.isArray(jogadores) ? toMap(jogadores, "cpf") : new Map();
     const winnerId = getWinnerId(jogo);
 
     const home = teamById.get(jogo.time1_id);
@@ -134,8 +132,8 @@ async function initJogoStatsPage() {
     const homeRows = getSumulasPorTimeNoJogo(sumulas, jogo.id, home.id);
     const awayRows = getSumulasPorTimeNoJogo(sumulas, jogo.id, away.id);
 
-    document.getElementById("home-tbody").innerHTML = renderTeamStats(homeRows, jogadorByCpf);
-    document.getElementById("away-tbody").innerHTML = renderTeamStats(awayRows, jogadorByCpf);
+    document.getElementById("home-tbody").innerHTML = renderTeamStats(homeRows);
+    document.getElementById("away-tbody").innerHTML = renderTeamStats(awayRows);
 }
 
 function escapeHtml(text) {

@@ -64,12 +64,15 @@ window.showRound = showRound;
 async function initIndexPage() {
     const { times, rodadas, jogos } = await loadCampeonatoData();
     const teamById = toMap(times, "id");
+    const jogoById = toMap(jogos, "id");
     const roundsContainer = document.getElementById("roundsContainer");
     const roundTabs = document.getElementById("roundTabs");
 
     const sortedRodadas = [...rodadas].sort((a, b) => a.id - b.id);
     const firstOpenRound = sortedRodadas.find((r) => {
-        const rodadaJogos = jogos.filter((j) => j.rodadaId === r.id);
+        const rodadaJogos = (Array.isArray(r.jogosIds) ? r.jogosIds : [])
+            .map((id) => jogoById.get(id))
+            .filter(Boolean);
         return rodadaJogos.some((j) => !j.finalizado);
     });
     const activeRoundId = firstOpenRound ? firstOpenRound.id : (sortedRodadas[0] ? sortedRodadas[0].id : 1);
@@ -84,8 +87,9 @@ async function initIndexPage() {
 
     roundsContainer.innerHTML = sortedRodadas
         .map((rodada) => {
-            const rodadaJogos = jogos
-                .filter((j) => j.rodadaId === rodada.id)
+            const rodadaJogos = (Array.isArray(rodada.jogosIds) ? rodada.jogosIds : [])
+                .map((id) => jogoById.get(id))
+                .filter(Boolean)
                 .sort((a, b) => a.horario.localeCompare(b.horario));
             return `
                 <div id="round${rodada.id}" class="round-section ${rodada.id === activeRoundId ? "active" : ""}">

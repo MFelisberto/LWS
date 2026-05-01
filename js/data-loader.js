@@ -30,54 +30,29 @@ function buildTimesFallbackFromJogos(jogos) {
 }
 
 async function loadCampeonatoData() {
-    const [rodadas, jogos, sumulas, times, rawJogadores] = await Promise.all([
+    const [rodadas, jogos, sumulas, times] = await Promise.all([
         fetchJsonSafe("data/rodadas.json", []),
         fetchJsonSafe("data/jogos.json", []),
-        fetchJsonFirstAvailable(["data/Sumulas.json", "data/sumulas.json"], []),
-        fetchJsonSafe("data/times.json", []),
-        fetchJsonSafe("data/jogadores.json", [])
+        fetchJsonFirstAvailable(["data/sumulas.json"], []),
+        fetchJsonSafe("data/times.json", [])
     ]);
 
-    const normalizedTimes = Array.isArray(times) && times.length ? times : buildTimesFallbackFromJogos(jogos);
-    const { jogadores, jogadoresPorTime } = normalizeJogadores(rawJogadores);
-    return { times: normalizedTimes, jogadores, jogadoresPorTime, rodadas, jogos, sumulas };
-}
-
-function normalizeJogadores(rawJogadores) {
-    if (!Array.isArray(rawJogadores)) {
-        return { jogadores: [], jogadoresPorTime: {} };
-    }
-
-    const groupedFormat = rawJogadores.every(
-        (item) => item && typeof item === "object" && typeof item.timeId === "string" && Array.isArray(item.jogadores)
-    );
-
-    if (groupedFormat) {
-        const jogadoresPorTime = {};
-        const jogadores = [];
-
-        rawJogadores.forEach((timeNode) => {
-            const timeId = timeNode.timeId;
-            const jogadoresDoTime = Array.isArray(timeNode.jogadores) ? timeNode.jogadores : [];
-            jogadoresPorTime[timeId] = jogadoresDoTime.map((jogador) => ({ ...jogador, timeId }));
-            jogadores.push(...jogadoresPorTime[timeId]);
-        });
-
-        return { jogadores, jogadoresPorTime };
-    }
-
-    const jogadoresPorTime = rawJogadores.reduce((acc, jogador) => {
-        if (!jogador || !jogador.timeId) {
-            return acc;
+    let normalizedTimes = [];
+    if (Array.isArray(times) && times.length > 0) {
+        if (times[0] && times[0].Grupo !== undefined && Array.isArray(times[0].TimesId)) {
+            times.forEach((g) => {
+                const grupoNome = `Grupo ${g.Grupo}`;
+                g.TimesId.forEach((id) => {
+                    normalizedTimes.push({ id: id, nome: id, grupo: grupoNome });
+                });
+            });
+        } else {
+            normalizedTimes = times;
         }
-        if (!acc[jogador.timeId]) {
-            acc[jogador.timeId] = [];
-        }
-        acc[jogador.timeId].push(jogador);
-        return acc;
-    }, {});
-
-    return { jogadores: rawJogadores, jogadoresPorTime };
+    } else {
+        normalizedTimes = buildTimesFallbackFromJogos(jogos);
+    }
+    return { times: normalizedTimes, rodadas, jogos, sumulas };
 }
 
 function toMap(items, key) {
@@ -131,29 +106,24 @@ function computeClassificacao(times, jogos) {
         const winner = getWinnerId(jogo);
 
         t1.jogos += 1;
-        t2.jogos += 1;
         t1.pontosPro += p1;
         t1.pontosContra += p2;
+        t2.jogos += 1;
         t2.pontosPro += p2;
         t2.pontosContra += p1;
 
         if (winner === t1.timeId) {
             t1.vitorias += 1;
-            t1.pontos += 2;
             t2.derrotas += 1;
-            t2.pontos += 1;
         } else if (winner === t2.timeId) {
             t2.vitorias += 1;
-            t2.pontos += 2;
             t1.derrotas += 1;
-            t1.pontos += 1;
-        } else {
-            t1.pontos += 1;
-            t2.pontos += 1;
         }
     });
 
     rows.forEach((row) => {
+        // Na classificação desta liga, "Pontos" = pontos feitos (PF).
+        row.pontos = row.pontosPro;
         row.saldo = row.pontosPro - row.pontosContra;
     });
 
@@ -167,10 +137,9 @@ function computeClassificacao(times, jogos) {
 
     Object.keys(grouped).forEach((grupo) => {
         grouped[grupo].sort((a, b) =>
-            b.pontos - a.pontos ||
             b.vitorias - a.vitorias ||
             b.saldo - a.saldo ||
-            b.pontosPro - a.pontosPro ||
+            b.pontos - a.pontos ||
             a.equipe.localeCompare(b.equipe)
         );
     });
