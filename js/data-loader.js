@@ -33,7 +33,6 @@ async function loadCampeonatoData() {
     const [rodadas, jogos, sumulas, times, rawJogadores] = await Promise.all([
         fetchJsonSafe("data/rodadas.json", []),
         fetchJsonSafe("data/jogos.json", []),
-        // Repositório usa Sumulas.json (S maiúsculo); sumulas.json como fallback para deploys.
         fetchJsonFirstAvailable(["data/Sumulas.json", "data/sumulas.json"], []),
         fetchJsonSafe("data/times.json", []),
         fetchJsonSafe("data/jogadores.json", [])
