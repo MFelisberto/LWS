@@ -158,5 +158,87 @@
         ]
       }
     ]
+  },
+
+  {
+    "jogoId": "R1-J5",
+    "times": [
+      {
+        "timeId": "Benchers Basquete",
+        "jogadores": [
+          { "Nome": "Bernardo", "nmrCamiseta": 9,  "stats": { "pontos": 11, "assistencias": 2, "rebotes": 6, "tocos": 0, "roubos": 3}},
+          { "Nome": "Henrique", "nmrCamiseta": 23, "stats": { "pontos": 0,  "assistencias": 1, "rebotes": 0, "tocos": 0, "roubos": 0}},
+          { "Nome": "Tomaz",    "nmrCamiseta": 10, "stats": { "pontos": 12, "assistencias": 2, "rebotes": 16,"tocos": 0, "roubos": 3}},
+          { "Nome": "Guilherme","nmrCamiseta": 5,  "stats": { "pontos": 0,  "assistencias": 2, "rebotes": 4, "tocos": 0, "roubos": 0}},
+          { "Nome": "Franco",   "nmrCamiseta": 2,  "stats": { "pontos": 0,  "assistencias": 0, "rebotes": 0, "tocos": 0, "roubos": 0}},
+          { "Nome": "Lorenzo B.","nmrCamiseta": 7,  "stats":{ "pontos": 0,  "assistencias": 0, "rebotes": 6, "tocos": 0, "roubos": 0}},
+          { "Nome": "Leonardo", "nmrCamiseta": 6,  "stats": { "pontos": 13, "assistencias": 0, "rebotes": 7, "tocos": 0, "roubos": 1}},
+          { "Nome": "Pedro",    "nmrCamiseta": 1,  "stats": { "pontos": 18, "assistencias": 0, "rebotes": 10,"tocos": 0, "roubos": 2}},
+          { "Nome": "Artur",    "nmrCamiseta": 17, "stats": { "pontos": 0,  "assistencias": 0, "rebotes": 0, "tocos": 0, "roubos": 0}},
+          { "Nome": "Lorenzo G.","nmrCamiseta": 11, "stats":{ "pontos": 5,  "assistencias": 2, "rebotes": 3, "tocos": 0, "roubos": 2}}
+        ]
+      },
+      {
+        "timeId": "Basquete Guaíba",
+        "jogadores": [
+          { "Nome": "Gabriel",    "nmrCamiseta": 2,  "stats":{ "pontos": 0, "assistencias": 0, "rebotes": 0, "tocos": 0, "roubos": 0}},
+          { "Nome": "Lucca",      "nmrCamiseta": 5,  "stats":{ "pontos": 0, "assistencias": 0, "rebotes": 0, "tocos": 0, "roubos": 0}},
+          { "Nome": "Paulo",      "nmrCamiseta": 10, "stats":{ "pontos": 7, "assistencias": 3, "rebotes": 6, "tocos": 0, "roubos": 2}},
+          { "Nome": "Henrique C.","nmrCamiseta": 20, "stats":{ "pontos": 6, "assistencias": 0, "rebotes": 6, "tocos": 0, "roubos": 0}},
+          { "Nome": "Patryck",    "nmrCamiseta": 12, "stats":{ "pontos": 0, "assistencias": 0, "rebotes": 0, "tocos": 0, "roubos": 1}},
+          { "Nome": "João G.",    "nmrCamiseta": 14, "stats":{ "pontos": 6, "assistencias": 0, "rebotes": 0, "tocos": 0, "roubos": 0}},
+          { "Nome": "Matheus S.", "nmrCamiseta": 16, "stats":{ "pontos": 0, "assistencias": 0, "rebotes": 2, "tocos": 0, "roubos": 0}},
+          { "Nome": "João P.",    "nmrCamiseta": 7,  "stats":{ "pontos": 2, "assistencias": 1, "rebotes": 1, "tocos": 0, "roubos": 2}},
+          { "Nome": "Matheus E.", "nmrCamiseta": 22, "stats":{ "pontos": 0, "assistencias": 0, "rebotes": 2, "tocos": 0, "roubos": 0}},
+          { "Nome": "Henrique S.","nmrCamiseta": 9,  "stats":{ "pontos": 23,"assistencias": 0, "rebotes": 12,"tocos": 0, "roubos": 2}},
+          { "Nome": "Israel",     "nmrCamiseta": 34, "stats":{ "pontos": 0, "assistencias": 0, "rebotes": 0, "tocos": 0, "roubos": 0}},
+          { "Nome": "Antônio",    "nmrCamiseta": 67, "stats":{ "pontos": 3, "assistencias": 4, "rebotes": 9, "tocos": 1, "roubos": 1}},
+          { "Nome": "Angelo",     "nmrCamiseta": 1,  "stats":{ "pontos": 0, "assistencias": 0, "rebotes": 0, "tocos": 0, "roubos": 0}},
+          { "Nome": "Kauã",       "nmrCamiseta": 4,  "stats":{ "pontos": 5, "assistencias": 0, "rebotes": 3, "tocos": 0, "roubos": 1}},
+          { "Nome": "Nicolas",    "nmrCamiseta": 6,  "stats":{ "pontos": 3, "assistencias": 1, "rebotes": 1, "tocos": 0, "roubos": 0}}
+        ]
+      }
+    ]
+  },
+
+  {
+    "jogoId": "R1-J6",
+    "times": [
+      {
+        "timeId": "RTG Basquete",
+        "jogadores": [
+          { "Nome": "Richer",   "nmrCamiseta": 27,"stats":{ "pontos": 6, "assistencias": 5, "rebotes": 9, "tocos": 0, "roubos": 6}},
+          { "Nome": "Nathan",   "nmrCamiseta": 11,"stats":{ "pontos": 5, "assistencias": 1, "rebotes": 3, "tocos": 0, "roubos": 2}},
+          { "Nome": "Carlos",   "nmrCamiseta": 23,"stats":{ "pontos": 37,"assistencias": 0, "rebotes": 1, "tocos": 0, "roubos": 1}},
+          { "Nome": "Nicolas",  "nmrCamiseta": 13,"stats":{ "pontos": 2, "assistencias": 0, "rebotes": 6, "tocos": 0, "roubos": 0}},
+          { "Nome": "Miguel",   "nmrCamiseta": 3, "stats":{ "pontos": 2, "assistencias": 2, "rebotes": 1, "tocos": 0, "roubos": 2}},
+          { "Nome": "Xandy",    "nmrCamiseta": 8, "stats":{ "pontos": 0, "assistencias": 2, "rebotes": 2, "tocos": 0, "roubos": 1}},
+          { "Nome": "Omar",     "nmrCamiseta": 32,"stats":{ "pontos": 2, "assistencias": 1, "rebotes": 3, "tocos": 0, "roubos": 0}},
+          { "Nome": "Eduardo",  "nmrCamiseta": 99,"stats":{ "pontos": 0, "assistencias": 0, "rebotes": 0, "tocos": 0, "roubos": 0}},
+          { "Nome": "Davi",     "nmrCamiseta": 14,"stats":{ "pontos": 3, "assistencias": 0, "rebotes": 0, "tocos": 0, "roubos": 1}},
+          { "Nome": "Rodrigo",  "nmrCamiseta": 9, "stats":{ "pontos": 3, "assistencias": 0, "rebotes": 0, "tocos": 0, "roubos": 0}}     
+        ]
+      },
+      {
+        "timeId": "Bex Team",
+        "jogadores": [
+          { "Nome": "Inácio", "nmrCamiseta": 41, "stats":{ "pontos": 8, "assistencias": 0,"rebotes": 20,"tocos": 0, "roubos": 0}},
+          { "Nome": "Marcio", "nmrCamiseta": 31, "stats":{ "pontos": 10,"assistencias": 0,"rebotes": 1, "tocos": 0, "roubos": 0}},
+          { "Nome": "Kauê",   "nmrCamiseta": 14, "stats":{ "pontos": 11,"assistencias": 3,"rebotes": 3, "tocos": 0, "roubos": 2}},
+          { "Nome": "Túlio",  "nmrCamiseta": 79, "stats":{ "pontos": 0, "assistencias": 0,"rebotes": 1, "tocos": 0, "roubos": 0}},
+          { "Nome": "Xavier", "nmrCamiseta": 6,  "stats":{ "pontos": 4, "assistencias": 0,"rebotes": 0, "tocos": 0, "roubos": 0}},
+          { "Nome": "Maylon", "nmrCamiseta": 30, "stats":{ "pontos": 8, "assistencias": 2,"rebotes": 1, "tocos": 0, "roubos": 0}},
+          { "Nome": "0",      "nmrCamiseta": 0,  "stats":{ "pontos": 5, "assistencias": 0,"rebotes": 2, "tocos": 0, "roubos": 0}},
+          { "Nome": "Leonardo","nmrCamiseta": 1, "stats":{ "pontos": 4, "assistencias": 1,"rebotes": 2, "tocos": 0, "roubos": 0}},
+          { "Nome": "João",   "nmrCamiseta": 12, "stats":{ "pontos": 2, "assistencias": 0,"rebotes": 0, "tocos": 0, "roubos": 0}},
+          { "Nome": "15",     "nmrCamiseta": 15, "stats":{ "pontos": 2, "assistencias": 0,"rebotes": 1, "tocos": 0, "roubos": 0}},
+          { "Nome": "Lucas",  "nmrCamiseta": 27, "stats":{ "pontos": 3, "assistencias": 0,"rebotes": 0, "tocos": 0, "roubos": 0}},
+          { "Nome": "Vinicius","nmrCamiseta": 19,"stats":{ "pontos": 3, "assistencias": 0,"rebotes": 0, "tocos": 0, "roubos": 0}}
+        ]
+      }
+    ]
   }
+
+
+
 ]
