@@ -237,7 +237,134 @@
         ]
       }
     ]
+  },
+
+  {
+    "jogoId": "R2-J1",
+    "times": [
+      {
+        "timeId": "Sapo Basketball",
+        "jogadores":[]
+      },
+      {
+        "timeId": "Embaixadores",
+        "jogadores":[]
+      }
+    ]
+  },
+
+
+
+
+  {
+    "jogoId": "R2-J2",
+    "times": [
+      {
+        "timeId": "POA Bryant",
+        "jogadores":[]
+      },
+      {
+        "timeId": "Corinthians Alvorada",
+        "jogadores":[]
+      }
+    ]
+  },
+
+
+
+
+
+  {
+    "jogoId": "R2-J3",
+    "times": [
+      {
+        "timeId": "Ducks Basquete",
+        "jogadores":[]
+      },
+      {
+        "timeId": "Bex Team",
+        "jogadores":[]
+      }
+    ]
+  },
+
+
+
+
+
+  {
+    "jogoId": "R2-J4",
+    "times": [
+      {
+        "timeId": "Sultanes",
+        "jogadores":[]
+      },
+      {
+        "timeId": "O Plano",
+        "jogadores":[]
+      }
+    ]
+  },
+
+
+
+
+
+
+  {
+    "jogoId": "R2-J5",
+    "times": [
+      {
+        "timeId": "Rays Basquete",
+        "jogadores":[]
+      },
+      {
+        "timeId": "Olaria Basketball",
+        "jogadores":[]
+      }
+    ]
+  },
+
+
+
+
+
+
+  {
+    "jogoId": "R2-J6",
+    "times": [
+      {
+        "timeId": "Raposas",
+        "jogadores":[]
+      },
+      {
+        "timeId": "Basquete São Léo",
+        "jogadores":[]
+      }
+    ]
+  },
+
+
+
+
+
+
+
+  {
+    "jogoId": "R2-J7",
+    "times": [
+      {
+        "timeId": "RTG Basquete",
+        "jogadores":[]
+      },
+      {
+        "timeId": "Cambrayers Cer Viamão",
+        "jogadores":[]
+      }
+    ]
   }
+
+
 
 
 
