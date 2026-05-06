@@ -33,7 +33,7 @@ async function loadCampeonatoData() {
     const [rodadas, jogos, sumulas, times] = await Promise.all([
         fetchJsonSafe("data/rodadas.json", []),
         fetchJsonSafe("data/jogos.json", []),
-        fetchJsonFirstAvailable(["data/sumulas.json"], []),
+        fetchJsonFirstAvailable(["data/Sumulas.json"], []),
         fetchJsonSafe("data/times.json", [])
     ]);
 
