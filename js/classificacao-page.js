@@ -33,11 +33,11 @@ function renderTableRows(rows) {
                 <tr class="${rowClassByPosition(position)}">
                     <td class="position">${position}</td>
                     <td class="team-name">${row.equipe}</td>
-                    <td class="stat">${row.jogos}</td>
-                    <td class="stat">${row.vitorias}</td>
-                    <td class="stat">${row.derrotas}</td>
-                    <td class="stat points">${row.pontos}</td>
-                    <td class="stat ${saldoClass(row.saldo)}">${formatSaldo(row.saldo)}</td>
+                    <td class="stat col-jogos">${row.jogos}</td>
+                    <td class="stat col-vitorias">${row.vitorias}</td>
+                    <td class="stat col-derrotas">${row.derrotas}</td>
+                    <td class="stat points col-pontos">${row.pontos}</td>
+                    <td class="stat col-saldo ${saldoClass(row.saldo)}">${formatSaldo(row.saldo)}</td>
                 </tr>
             `;
         })
@@ -53,22 +53,24 @@ async function initClassificacaoPage() {
     container.innerHTML = grupos
         .map((grupo) => `
             <h2 class="group-title">${grupo}</h2>
-            <table class="standings-table">
-                <thead>
-                    <tr>
-                        <th class="position">#</th>
-                        <th class="team-name">Equipe</th>
-                        <th class="stat">Jogos</th>
-                        <th class="stat">Vitórias</th>
-                        <th class="stat">Derrotas</th>
-                        <th class="stat">Pontos</th>
-                        <th class="stat">Saldo Pts</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${renderTableRows(grouped[grupo])}
-                </tbody>
-            </table>
+            <div class="standings-scroll" role="region" aria-label="Tabela de classificação ${grupo}">
+                <table class="standings-table">
+                    <thead>
+                        <tr>
+                            <th class="position">#</th>
+                            <th class="team-name">Equipe</th>
+                            <th class="stat col-jogos">Jogos</th>
+                            <th class="stat col-vitorias">Vitórias</th>
+                            <th class="stat col-derrotas">Derrotas</th>
+                            <th class="stat col-pontos">Pontos</th>
+                            <th class="stat col-saldo">Saldo Pts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${renderTableRows(grouped[grupo])}
+                    </tbody>
+                </table>
+            </div>
         `)
         .join("");
 }

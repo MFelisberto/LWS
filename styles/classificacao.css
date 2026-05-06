@@ -65,6 +65,19 @@
     padding: 30px;
 }
 
+.standings-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-gutter: stable both-edges;
+}
+
+.standings-scroll:focus-within {
+    outline: 2px solid rgba(204, 0, 0, 0.35);
+    outline-offset: 6px;
+    border-radius: 16px;
+}
+
 .group-title {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 1.3em;
@@ -85,6 +98,7 @@
     width: 100%;
     border-collapse: collapse;
     font-size: 1em;
+    min-width: 640px;
 }
 
 .standings-table thead {
@@ -194,6 +208,21 @@
         font-size: 0.9em;
     }
 
+    .topbar {
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .topbar-logo {
+        width: 44px;
+        height: 44px;
+    }
+
+    .topbar-title {
+        font-size: 1em;
+        letter-spacing: 0.6px;
+    }
+
     .header {
         padding: 30px 20px;
     }
@@ -205,6 +234,7 @@
 
     .standings-table {
         font-size: 0.85em;
+        min-width: 600px;
     }
 
     .standings-table th,
@@ -221,5 +251,23 @@
     .standings-table th.position,
     .standings-table td.position {
         width: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .classification-container {
+        padding: 16px;
+    }
+
+    .standings-table {
+        min-width: 520px;
+        font-size: 0.82em;
+    }
+
+    /* Mantém o essencial visível no celular */
+    .col-jogos,
+    .col-derrotas,
+    .col-saldo {
+        display: none;
     }
 }
