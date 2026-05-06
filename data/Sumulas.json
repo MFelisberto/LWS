@@ -402,11 +402,38 @@
     "times": [
       {
         "timeId": "Rays Basquete",
-        "jogadores":[]
+        "jogadores":[
+          { "Nome": "Pedro",   "nmrCamiseta": 10, "stats":{ "pontos": 2, "assistencias": 1, "rebotes": 1, "tocos": 1, "roubos": 0}},
+          { "Nome": "Tiago",   "nmrCamiseta": 13, "stats":{ "pontos": 2, "assistencias": 0, "rebotes": 8, "tocos": 0, "roubos": 1}},
+          { "Nome": "Nicolas", "nmrCamiseta": 8,  "stats":{ "pontos": 0, "assistencias": 0, "rebotes": 2, "tocos": 0, "roubos": 0}},
+          { "Nome": "Michael", "nmrCamiseta": 3,  "stats":{ "pontos": 2, "assistencias": 2, "rebotes": 9, "tocos": 0, "roubos": 1}},
+          { "Nome": "Luiz",    "nmrCamiseta": 11, "stats":{ "pontos": 7, "assistencias": 1, "rebotes": 0, "tocos": 0, "roubos": 1}},
+          { "Nome": "Leonardo","nmrCamiseta": 7,  "stats":{ "pontos": 4, "assistencias": 4, "rebotes": 3, "tocos": 1, "roubos": 1}},
+          { "Nome": "Horn",    "nmrCamiseta": 34, "stats":{ "pontos": 12, "assistencias": 1, "rebotes": 5, "tocos": 0, "roubos": 0}},
+          { "Nome": "Breno",   "nmrCamiseta": 2,  "stats":{ "pontos": 2, "assistencias": 0, "rebotes": 5, "tocos": 0, "roubos": 1}},
+          { "Nome": "Luan",    "nmrCamiseta": 6,  "stats":{ "pontos": 8, "assistencias": 1, "rebotes": 4, "tocos": 0, "roubos": 1}},
+          { "Nome": "Guilherme","nmrCamiseta": 15,"stats":{ "pontos": 4, "assistencias": 1, "rebotes": 2, "tocos": 0, "roubos": 1}}
+        ]
       },
       {
         "timeId": "Olaria Basketball",
-        "jogadores":[]
+        "jogadores":[
+          { "Nome": "Chocolate", "nmrCamiseta": 6,  "stats":{ "pontos": 2, "assistencias": 3, "rebotes": 3, "tocos": 0, "roubos": 1}},
+          { "Nome": "Ronaldo",   "nmrCamiseta": 3,  "stats":{ "pontos": 7, "assistencias": 2, "rebotes": 0, "tocos": 0, "roubos": 3}},
+          { "Nome": "Alisson",   "nmrCamiseta": 10, "stats":{ "pontos": 3, "assistencias": 0, "rebotes": 3, "tocos": 0, "roubos": 1}},
+          { "Nome": "Sérgio",    "nmrCamiseta": 55, "stats":{ "pontos": 21, "assistencias": 0, "rebotes": 5, "tocos": 0, "roubos": 3}},
+          { "Nome": "Gabriel",   "nmrCamiseta": 17, "stats":{ "pontos": 2, "assistencias": 1, "rebotes": 1, "tocos": 0, "roubos": 0}},
+          { "Nome": "Lorenzo",   "nmrCamiseta": 14, "stats":{ "pontos": 4, "assistencias": 1, "rebotes": 3, "tocos": 0, "roubos": 0}},
+          { "Nome": "Nicollas",  "nmrCamiseta": 71, "stats":{ "pontos": 2, "assistencias": 1, "rebotes": 3, "tocos": 0, "roubos": 0}},
+          { "Nome": "Vitola",    "nmrCamiseta": 34, "stats":{ "pontos": 0, "assistencias": 0, "rebotes": 2, "tocos": 0, "roubos": 1}},
+          { "Nome": "Terra",     "nmrCamiseta": 2,  "stats":{ "pontos": 4, "assistencias": 1, "rebotes": 8, "tocos": 1, "roubos": 1}},
+          { "Nome": "Acosta",    "nmrCamiseta": 11, "stats":{ "pontos": 0, "assistencias": 0, "rebotes": 0, "tocos": 1, "roubos": 0}},
+          { "Nome": "Luiz",      "nmrCamiseta": 72, "stats":{ "pontos": 0, "assistencias": 0, "rebotes": 1, "tocos": 0, "roubos": 0}},
+          { "Nome": "Taynã",     "nmrCamiseta": 45, "stats":{ "pontos": 5, "assistencias": 0, "rebotes": 5, "tocos": 0, "roubos": 4}},
+          { "Nome": "Weigl",     "nmrCamiseta": 31, "stats":{ "pontos": 2, "assistencias": 0, "rebotes": 4, "tocos": 0, "roubos": 1}},
+          { "Nome": "Ditadi",    "nmrCamiseta": 79, "stats":{ "pontos": 0, "assistencias": 0, "rebotes": 1, "tocos": 0, "roubos": 0}},
+          { "Nome": "Jonathan",  "nmrCamiseta": 81, "stats":{ "pontos": 1, "assistencias": 0, "rebotes": 0, "tocos": 0, "roubos": 1}}
+        ]
       }
     ]
   },
@@ -468,18 +495,33 @@
     "times": [
       {
         "timeId": "RTG Basquete",
-        "jogadores":[]
+        "jogadores":[
+          { "Nome": "Miguel",   "nmrCamiseta": 3,  "stats":{ "pontos": 13, "assistencias": 2, "rebotes": 2, "tocos": 0, "roubos": 4}},
+          { "Nome": "Nathan",   "nmrCamiseta": 5,  "stats":{ "pontos": 6,  "assistencias": 3, "rebotes": 2, "tocos": 1, "roubos": 1}},
+          { "Nome": "Xandy",    "nmrCamiseta": 8,  "stats":{ "pontos": 4,  "assistencias": 0, "rebotes": 1, "tocos": 0, "roubos": 0}},
+          { "Nome": "Davi",     "nmrCamiseta": 9,  "stats":{ "pontos": 0,  "assistencias": 1, "rebotes": 4, "tocos": 0, "roubos": 0}},
+          { "Nome": "Nicolas",  "nmrCamiseta": 13, "stats":{ "pontos": 4,  "assistencias": 0, "rebotes": 7, "tocos": 2, "roubos": 2}},
+          { "Nome": "Omar",     "nmrCamiseta": 32, "stats":{ "pontos": 0,  "assistencias": 0, "rebotes": 5, "tocos": 1, "roubos": 1}},
+          { "Nome": "Eduardo",  "nmrCamiseta": 99, "stats":{ "pontos": 0,  "assistencias": 0, "rebotes": 1, "tocos": 0, "roubos": 0}},
+          { "Nome": "Will",     "nmrCamiseta": 23, "stats":{ "pontos": 45, "assistencias": 2, "rebotes": 11,"tocos": 0, "roubos": 3}}
+        ]
       },
       {
         "timeId": "Cambrayers Cer Viamão",
-        "jogadores":[]
+        "jogadores":[
+          { "Nome": "Antônio",  "nmrCamiseta": 1,  "stats":{ "pontos": 5,  "assistencias": 0, "rebotes": 1, "tocos": 0, "roubos": 1}},
+          { "Nome": "Jorge",    "nmrCamiseta": 23, "stats":{ "pontos": 10, "assistencias": 1, "rebotes": 2, "tocos": 2, "roubos": 0}},
+          { "Nome": "Júlio",    "nmrCamiseta": 45, "stats":{ "pontos": 7,  "assistencias": 3, "rebotes": 5, "tocos": 0, "roubos": 2}},
+          { "Nome": "Alex",     "nmrCamiseta": 12, "stats":{ "pontos": 2,  "assistencias": 0, "rebotes": 3, "tocos": 0, "roubos": 0}},
+          { "Nome": "Roberto",  "nmrCamiseta": 30, "stats":{ "pontos": 21, "assistencias": 5, "rebotes": 14,"tocos": 4, "roubos": 0}},
+          { "Nome": "Luís",     "nmrCamiseta": 31, "stats":{ "pontos": 0,  "assistencias": 2, "rebotes": 3, "tocos": 1, "roubos": 1}},
+          { "Nome": "Cadu",     "nmrCamiseta": 22, "stats":{ "pontos": 2,  "assistencias": 0, "rebotes": 6, "tocos": 0, "roubos": 0}},
+          { "Nome": "Ramom",    "nmrCamiseta": 76, "stats":{ "pontos": 9,  "assistencias": 2, "rebotes": 5, "tocos": 0, "roubos": 1}},
+          { "Nome": "Pedro",    "nmrCamiseta": 25, "stats":{ "pontos": 4,  "assistencias": 1, "rebotes": 2, "tocos": 0, "roubos": 1}},
+          { "Nome": "Papa",     "nmrCamiseta": 2,  "stats":{ "pontos": 4,  "assistencias": 0, "rebotes": 2, "tocos": 0, "roubos": 0}}
+        ]
       }
     ]
   }
-
-
-
-
-
 
 ]

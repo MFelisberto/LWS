@@ -10,7 +10,7 @@
   { "id": "R2-J2", "rodadaId": 2, "horario": "10:00", "time1_id": "POA Bryant",        "time2_id": "Corinthians Alvorada", "placar": { "time1": 77, "time2": 67 }, "ganhadorId": "POA Bryant",        "finalizado": true },
   { "id": "R2-J3", "rodadaId": 2, "horario": "12:00", "time1_id": "Ducks Basquete",    "time2_id": "Bex Team",             "placar": { "time1": 81, "time2": 44 }, "ganhadorId": "Ducks Basquete",    "finalizado": true },
   { "id": "R2-J4", "rodadaId": 2, "horario": "14:00", "time1_id": "Sultanes",          "time2_id": "O Plano",              "placar": { "time1": 63, "time2": 64 }, "ganhadorId": "O Plano",           "finalizado": true },
-  { "id": "R2-J5", "rodadaId": 2, "horario": "16:00", "time1_id": "Rays Basquete",     "time2_id": "Olaria Basketball",    "placar": { "time1": 44, "time2": 50 }, "ganhadorId": "Olaria Basketball", "finalizado": true },
+  { "id": "R2-J5", "rodadaId": 2, "horario": "16:00", "time1_id": "Rays Basquete",     "time2_id": "Olaria Basketball",    "placar": { "time1": 43, "time2": 52 }, "ganhadorId": "Olaria Basketball", "finalizado": true },
   { "id": "R2-J6", "rodadaId": 2, "horario": "18:00", "time1_id": "Raposas",           "time2_id": "Basquete São Léo",     "placar": { "time1": 75, "time2": 72 }, "ganhadorId": "Raposas",           "finalizado": true },
   { "id": "R2-J7", "rodadaId": 2, "horario": "20:00", "time1_id": "RTG Basquete",      "time2_id": "Cambrayers Cer Viamão","placar": { "time1": 72, "time2": 64 },"ganhadorId": "RTG Basquete",      "finalizado": true },
 
